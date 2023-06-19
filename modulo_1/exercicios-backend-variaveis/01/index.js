@@ -1,5 +1,5 @@
 let weight = 76;
-let size = 1.79;
-let result = weight / (size * size);
+let height = 1.79;
+let result = weight / (height * height);
 
 console.log(`Seu IMC é de ${result}`)
