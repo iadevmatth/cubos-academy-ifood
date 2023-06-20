@@ -2,7 +2,8 @@ const jogada1 = "papel"
 const jogada2 = "papel"
 
 if (jogada1 === jogada2) {
-  console.log("Pie");
+  console.log("Tie!");
+  // Check the only three winning possibilities and compare them
 } else if (jogada1 === "pedra" && jogada2 !== "papel") {
   console.log(`jogada1 ${jogada1} winner.`)
 } else if (jogada1 === "papel" && jogada2 !== "tesoura") {
