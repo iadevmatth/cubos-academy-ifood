@@ -11,7 +11,9 @@ if (aposentada === true) {
   }
 } else {
   console.log("Aposentada: Negativo (PEGA LEAO)");
-} if (totalDeRendimentos > 2855970) {
+}
+
+if (totalDeRendimentos > 2855970) {
   console.log("RICO! PEGA LEAO!");
 } else {
   console.log("VAZA LEAO! JÁ TA DIFÍCIL SEM VOCÊ!");
