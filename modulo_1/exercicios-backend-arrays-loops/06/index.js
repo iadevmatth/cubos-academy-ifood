@@ -10,7 +10,7 @@ for (let sum of numeros) {
 
 let sumTotal = 0;
 
-for (n of sumNumbers) {
+for (let n of sumNumbers) {
   sumTotal += n
 }
 
