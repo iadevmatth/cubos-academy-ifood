@@ -23,7 +23,6 @@ const usuarios = [
 
 
 for (let usuario of usuarios) {
-  const maior_idade = true;
   if (usuario.idade > 17) {
     usuario.maior_idade = true
   } else {
