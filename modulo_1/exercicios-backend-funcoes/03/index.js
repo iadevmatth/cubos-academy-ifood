@@ -42,6 +42,22 @@ const carrinho = {
         if (!itemExistente) {
             carrinho.produtos.push(produto)
         }
+    },
+
+    imprimirDetalhes: function () {
+        console.log(`Cliente: ${this.nomeDoCliente}`);
+        let totalDeProdutos = 0;
+        let totalPagar = 0;
+
+        for (let item = 0; item < this.produtos.length; item++) {
+            totalDeProdutos += this.produtos[item].qtd
+            const nomeProduto = this.produtos[item].nome
+            const qtdProduto = this.produtos[item].qtd
+            totalPagar += this.produtos[item].precoUnit * this.produtos[item].qtd
+            console.log(`Item ${item + 1} - ${nomeProduto} - ${qtdProduto} und - R$${(totalPagar / 100).toFixed(2)}`);
+        }
+        console.log(`Total de itens: ${totalDeProdutos}`)
+        console.log(`Total a pagar: ${(totalPagar / 100).toFixed(2)}`)
     }
 };
 
@@ -60,7 +76,8 @@ const novoTenis = {
 }
 
 
-carrinho.addProduto(carrinho, novaBermuda)
-carrinho.addProduto(carrinho, novoTenis)
-carrinho.imprimirResumo();
-console.log(carrinho.produtos)
+// carrinho.addProduto(carrinho, novaBermuda)
+// carrinho.addProduto(carrinho, novoTenis)
+// carrinho.imprimirResumo();
+// console.log(carrinho.produtos)
+// carrinho.imprimirDetalhes();
