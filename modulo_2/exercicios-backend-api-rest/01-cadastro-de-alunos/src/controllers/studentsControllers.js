@@ -31,7 +31,7 @@ const registerStudent = (req, res) => {
     return res.status(400).json({ mensage: 'One of the fields is not filled in.' })
   };
 
-  if (!name.trim() || !last_name.trim() && !course.trim()) {
+  if (!name.trim() || !last_name.trim() || !course.trim()) {
     return res.status(400).json({ mensage: 'The fields (name, last name and course) must be text only.' })
   }
 
