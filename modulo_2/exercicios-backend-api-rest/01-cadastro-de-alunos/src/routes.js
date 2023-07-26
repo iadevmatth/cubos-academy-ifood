@@ -4,5 +4,6 @@ const routes = express();
 
 routes.get('/students', studentsControllers.listStudents);
 routes.get('/students/:id', studentsControllers.getStudents);
+routes.post('/students', studentsControllers.registerStudent);
 
 module.exports = routes

@@ -1,4 +1,5 @@
 const { students } = require('../database/database');
+let { identifyStudent } = require('../database/database');
 
 const listStudents = (req, res) => {
   return res.status(200).json(students);
@@ -23,7 +24,37 @@ const getStudents = (req, res) => {
   return res.status(200).json(student)
 };
 
+const registerStudent = (req, res) => {
+  const { name, last_name, year, course } = req.body;
+
+  if (!name || !last_name || !year || !course) {
+    return res.status(400).json({ mensage: 'One of the fields is not filled in.' })
+  };
+
+  if (!name.trim() || !last_name.trim() && !course.trim()) {
+    return res.status(400).json({ mensage: 'The fields (name, last name and course) must be text only.' })
+  }
+
+  if (year < 18) {
+    return res.status(422).json({ mensage: 'Underage students are not allowed' })
+  };
+
+  const student = {
+    id: identifyStudent++,
+    name,
+    last_name,
+    year,
+    course
+  };
+
+  students.push(student);
+
+  return res.status(201).json(student);
+
+};
+
 module.exports = {
   listStudents,
-  getStudents
+  getStudents,
+  registerStudent
 }

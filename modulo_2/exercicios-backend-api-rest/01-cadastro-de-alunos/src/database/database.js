@@ -1,10 +1,11 @@
 const database = {
+  identifyStudent: 2,
   students: [{
-    id: 3,
-    nome: "Marcos",
-    sobrenome: "Silveira",
-    idade: 36,
-    curso: "Programação do Zero"
+    id: 1,
+    name: "Marcos",
+    last_name: "Silveira",
+    year: 36,
+    course: "Programação do Zero"
   }]
 };
 
