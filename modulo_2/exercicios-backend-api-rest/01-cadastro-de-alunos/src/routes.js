@@ -2,12 +2,17 @@ const express = require('express');
 const studentsControllers = require('./controllers/studentsControllers')
 const routes = express();
 
+// Routes referring at students search
 routes.get('/students', studentsControllers.listStudents);
-routes.get('/courses', studentsControllers.listCourses);
 routes.get('/students/:id', studentsControllers.getStudents);
-routes.post('/students', studentsControllers.registerStudent);
-routes.post('/courses', studentsControllers.registerCourse);
-routes.delete('/students/:id', studentsControllers.deleteStudent);
 
+// Routes referring at students manipulation
+routes.post('/students', studentsControllers.registerStudent);
+routes.delete('/students/:id', studentsControllers.delStudent);
+routes.put('/students/:id', studentsControllers.attStudent);
+
+// Routes referring to the courses
+routes.get('/courses', studentsControllers.listCourses);
+routes.post('/courses', studentsControllers.registerCourse);
 
 module.exports = routes
