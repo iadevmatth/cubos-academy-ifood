@@ -1,7 +1,12 @@
-let { students, identifyStudent } = require('../database/database');
+let { courses, identifyCourse } = require('../database/databaseCourses');
+let { students, identifyStudent } = require('../database/databaseStudents');
 
 const listStudents = (req, res) => {
   return res.status(200).json(students);
+};
+
+const listCourses = (req, res) => {
+  return res.status(200).json(courses);
 };
 
 const getStudents = (req, res) => {
@@ -80,9 +85,42 @@ const deleteStudent = (req, res) => {
   return res.status(200).json(student);
 }
 
+const registerCourse = (req, res) => {
+  const { name } = req.body;
+
+  if (!name) {
+    return res.status(400).json({ message: ' (NAME) field not filled in.' })
+  };
+
+  if (!name.trim()) {
+    return res.status(400).json({ message: 'The fields (name) must be text only.' })
+  };
+
+  const courseName = courses.find((course) => {
+    return course.name === name
+  });
+
+  if (courseName) {
+    return res.status(409).json({ message: 'The course already exists.' })
+  };
+
+  const courseAdd = {
+    id: identifyCourse++,
+    name
+  };
+
+  courses.push(courseAdd);
+
+  return res.status(201).json(courseAdd)
+
+
+};
+
 module.exports = {
   listStudents,
+  listCourses,
   getStudents,
   registerStudent,
-  deleteStudent
+  deleteStudent,
+  registerCourse
 }

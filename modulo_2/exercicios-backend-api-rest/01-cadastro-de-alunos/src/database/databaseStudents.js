@@ -1,4 +1,4 @@
-const database = {
+const databaseStudents = {
   identifyStudent: 2,
   students: [{
     id: 1,
@@ -9,4 +9,4 @@ const database = {
   }]
 };
 
-module.exports = database
+module.exports = databaseStudents
