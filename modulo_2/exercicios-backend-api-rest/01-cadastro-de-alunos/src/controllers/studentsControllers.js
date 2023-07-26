@@ -1,5 +1,4 @@
-const { students } = require('../database/database');
-let { identifyStudent } = require('../database/database');
+let { students, identifyStudent } = require('../database/database');
 
 const listStudents = (req, res) => {
   return res.status(200).json(students);
@@ -53,8 +52,33 @@ const registerStudent = (req, res) => {
 
 };
 
+const deleteStudent = (req, res) => {
+  const { id } = req.params;
+  // Verifying if id is a valid number.
+  const isValidId = (id) => !isNaN(parseFloat(id)) && isFinite(id);
+  // If id is not a number, return error 400 (bad request).
+  if (!isValidId(id)) {
+    return res.status(400).json({ mensage: 'Invalid Id' })
+  };
+
+  const student = students.find((student) => {
+    return student.id === Number(id);
+  });
+
+  if (!student) {
+    return res.status(404).json({ mensage: 'Student not found.' })
+  };
+
+  students = students.filter((student) => {
+    return student.id !== Number(id)
+  })
+
+  return res.status(200).send();
+}
+
 module.exports = {
   listStudents,
   getStudents,
-  registerStudent
+  registerStudent,
+  deleteStudent
 }
