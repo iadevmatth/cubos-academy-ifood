@@ -77,7 +77,7 @@ const deleteStudent = (req, res) => {
     return student.id !== Number(id)
   })
 
-  return res.status(200).send();
+  return res.status(200).json(student);
 }
 
 module.exports = {
