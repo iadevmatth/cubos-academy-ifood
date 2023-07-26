@@ -44,7 +44,23 @@ const addGuest = (req, res) => {
 
 };
 
+const delGuest = (req, res) => {
+  const { name } = req.params;
+
+  const guest = guests.indexOf(name);
+
+  if (guest === -1) {
+    return res.status(404).json({ message: 'The name of guest at be remove dont exist in the list, no guest has been removed.' })
+  };
+
+  guests.splice(guest, 1)
+
+  return res.status(200).json({ message: 'Guest removed.' })
+
+}
+
 module.exports = {
   listGuest,
-  addGuest
+  addGuest,
+  delGuest
 }
