@@ -9,3 +9,4 @@ select categoria, sum(estoque) as soma_total from farmacia where categoria is no
 select categoria, sum(estoque) as soma_sem_categoria from farmacia where categoria is null group by categoria; -- soma do estoque disponível dos medicamentos sem categoria
 select concat(medicamento, '  ', '(', categoria, ')') as produto from farmacia where categoria is not null; -- retorna uma única coluna com a junção do nome do medicamento e a categoria entre parenteses 
 select concat(id, ' - ', medicamento, '  ', '(', coalesce(categoria, 'sem categoria'), ')') from farmacia; -- Quando a categoria for nula, substituir por (sem categoria)
+
