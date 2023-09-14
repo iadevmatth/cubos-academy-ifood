@@ -6,18 +6,18 @@ const { cadastrarTransacao, listarTransacao, atualizarTransacao, detalharTransac
 const rotas = express();
 
 rotas.post('/usuarios', cadastrarUsuario);
-rotas.post('/login', login)
+// rotas.post('/login', login)
 
-rotas.use(logado);
+// rotas.use(logado);
 
-rotas.get('/usuarios', detalharUsuario);
-rotas.put('/usuarios', atualizarUsuario);
-rotas.get('/categorias', listarCategorias);
-rotas.post('/transacao', cadastrarTransacao);
-rotas.get('/transacao', listarTransacao);
-rotas.put('/transacao/:id', atualizarTransacao);
-rotas.get('/transacao/extrato', transacaoExtrato);
-rotas.get('/transacao/:id', detalharTransacao);
-rotas.delete('/transacao/:id', excluirTransacao);
+// rotas.get('/usuarios', detalharUsuario);
+// rotas.put('/usuarios', atualizarUsuario);
+// rotas.get('/categorias', listarCategorias);
+// rotas.post('/transacao', cadastrarTransacao);
+// rotas.get('/transacao', listarTransacao);
+// rotas.put('/transacao/:id', atualizarTransacao);
+// rotas.get('/transacao/extrato', transacaoExtrato);
+// rotas.get('/transacao/:id', detalharTransacao);
+// rotas.delete('/transacao/:id', excluirTransacao);
 
 module.exports = rotas;
